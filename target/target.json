@@ -1,0 +1,147 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 4,
+        "name": "Open the browser and signIn",
+        "description": "",
+        "id": "login-to-wfm-application-and-verify-normalsite-form-submitted-successfully;open-the-browser-and-signin",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 5,
+            "name": ": Intialize the browser",
+            "match": {
+              "location": "stepDefination._intialize_the_browser()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": ": Navigate to \"https://industowers.sharepoint.com/sites/idocumentum/wfmdev\" Url",
+            "match": {
+              "arguments": [
+                {
+                  "val": "https://industowers.sharepoint.com/sites/idocumentum/wfmdev",
+                  "offset": 15
+                }
+              ],
+              "location": "stepDefination._navigate_to_something_url(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": ": Enter username and password with follwing details",
+            "match": {
+              "location": "stepDefination._enter_email_and_password_with_follwing_values(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "p-akash.verma@industowers.com",
+                  "user@123"
+                ],
+                "line": 8
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": ": Click on SignIn Button",
+            "match": {
+              "location": "stepDefination._click_on_signin_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 10,
+            "name": ": Verify Home Page is open and SignIn is successful",
+            "match": {
+              "location": "stepDefination._verify_home_page_is_open_and_signin_is_successful()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 3,
+            "name": "@SanityTest"
+          }
+        ]
+      },
+      {
+        "line": 13,
+        "name": "Navigate to NormalSite Form",
+        "description": "",
+        "id": "login-to-wfm-application-and-verify-normalsite-form-submitted-successfully;navigate-to-normalsite-form",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 14,
+            "name": ": Signin is successful",
+            "match": {
+              "location": "stepDefination.signin_is_successful()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 15,
+            "name": ": Click on NormalSite link on the Home Page",
+            "match": {
+              "location": "stepDefination._click_on_normalsite_link_on_the_home_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 16,
+            "name": ": Verify NormalSite form is open",
+            "match": {
+              "location": "stepDefination._verify_normalsite_form_is_open()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 12,
+            "name": "@SanityTest"
+          }
+        ]
+      }
+    ],
+    "name": "Login to WFM Application and verify NormalSite form submitted successfully",
+    "description": "",
+    "id": "login-to-wfm-application-and-verify-normalsite-form-submitted-successfully",
+    "keyword": "Feature",
+    "uri": "NormalSite.feature"
+  }
+]

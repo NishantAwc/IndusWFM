@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="0">
+<testcase classname="Login to WFM Application and verify NormalSite form submitted successfully" name="Open the browser and signIn" time="0">
+<system-out><![CDATA[Given : Intialize the browser...............................................skipped
+When : Navigate to "https://industowers.sharepoint.com/sites/idocumentum/wfmdev" Url.skipped
+And : Enter username and password with follwing details.....................skipped
+And : Click on SignIn Button................................................skipped
+Then : Verify Home Page is open and SignIn is successful....................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Login to WFM Application and verify NormalSite form submitted successfully" name="Navigate to NormalSite Form" time="0">
+<system-out><![CDATA[Given : Signin is successful................................................skipped
+When : Click on NormalSite link on the Home Page............................skipped
+Then : Verify NormalSite form is open.......................................skipped
+]]></system-out>
+</testcase>
+</testsuite>
