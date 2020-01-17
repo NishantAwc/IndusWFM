@@ -13,7 +13,7 @@ public WebDriver driver;
 		this.driver=driver;
 	}
 
-	
+
 	By Forms = By.xpath("//div[@id='navbarSupportedContent']/ul/li[2]");
 	
 	By EB = By.xpath("//div[@id='navbarSupportedContent']/ul/li[2]/ul/li[2]");

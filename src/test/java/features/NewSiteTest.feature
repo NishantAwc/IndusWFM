@@ -1,4 +1,4 @@
-Feature: Verify WFM New Site Form Submitted successfully
+Feature: Verify WFM Application New Site Form Submitted successfully
 
 @NewSiteFormTest
 Scenario: Open the browser and signIn
