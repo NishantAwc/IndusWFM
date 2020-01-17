@@ -1,4 +1,4 @@
-Feature: Login to WFM Application and verify StrategicSite form submitted successfully
+	Feature: Login to WFM Application and verify StrategicSite form submitted successfully
 
 @StrategicSiteFormTest
 Scenario: Open the browser and signIn
@@ -19,10 +19,10 @@ Then : Verify StrategicSite form is open
 Scenario: Select values on the NormalSite Form
 Given : StrategicSite form is open
 When : Enter values for StrategicSite form with following details
-|1000 |INDUS01 |INDUS01 |1234 |123 |This form is for test purpose|This form is for test purpose|This form is for test purpose|This form is for test purpose|This form is for test purpose|1000|1200|231|BudgetHead01|PreferredSupplier01|This form is for test purpose|This form is for test purpose|This form is for test purpose|This form is for test purpose|This form is for test purpose|This form is for test purpose|This form is for test purpose|
+|1000 |INDUS01 |INDUS01 |1234 |123 |987|564|This form is for test purpose|This form is for test purpose|This form is for test purpose|This form is for test purpose|This form is for test purpose|1000|1200|231|BudgetHead01|PreferredSupplier01|This form is for test purpose|This form is for test purpose|This form is for test purpose|This form is for test purpose|This form is for test purpose|
 Then : Verify Values enetred successfully
 
-
+@StrategicSiteFormTest
 Scenario: Validate StrategicSite form is submitted Successfully
 Given : Values are entered successfully
 When : Click on Submit Button

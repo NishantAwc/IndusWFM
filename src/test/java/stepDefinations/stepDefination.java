@@ -171,6 +171,7 @@ public class stepDefination extends Base{
     public void _enter_values_for_strategicsite_form_with_following_details(DataTable data) throws Throwable {
     	List<List<String>> objst = data.raw();
     	
+    	NormalSitePage nmP = new NormalSitePage(driver);
     	StrategicSitePage stP = new StrategicSitePage(driver);
     	Base b = new Base();
 		b.waitForPageLoaded();
@@ -182,34 +183,29 @@ public class stepDefination extends Base{
 		log.debug("Initiator Designation is selected");
 
 		b.waitForPageLoaded();
-		nS.GetUserDepartment().click();
-		List<WebElement> userDepartment = driver.findElements(
-				By.xpath("//div[@class='col-md-6 col-12']/div/select[@ng-model='SelectedDepartmentID']/option"));
-		int sizeUD = userDepartment.size();
+		stP.GetUserDepartment().click();
+		int sizeUD = stP.GetUserDepartmentElementSize();
 		int randomNumberUD = ThreadLocalRandom.current().nextInt(1, sizeUD);
-		userDepartment.get(randomNumberUD).click();
+		stP.GetUserDepartmentElement().get(randomNumberUD).click();
 		log.debug("User Department is selected");
 
 		b.waitForPageLoaded();
-		nS.GetBudgetCategory().click();
-		List<WebElement> budgetCategory = driver.findElements(
-				By.xpath("//div[@class='col-md-6 col-12']/div/select[@ng-model='SelectedBudgetcategoryID']/option"));
-		int sizeBC = budgetCategory.size();
+		stP.GetBudgetCategory().click();
+		
+		int sizeBC = stP.GetBudgetCategoryElementSize();
 		int randomNumberBC = ThreadLocalRandom.current().nextInt(1, sizeBC);
-		budgetCategory.get(randomNumberBC).click();
+		stP.GetBudgetCategoryElement().get(randomNumberBC).click();
 		log.debug("Budget Category is selected");
 
 		b.waitForPageLoaded();
-		nS.GetWorkExecutedBY().click();
-		List<WebElement> workExecutedBy = driver.findElements(
-				By.xpath("//div[@class='col-md-6 col-12']/div/select[@ng-model='SelectedWorkExecutedID']/option"));
-		int sizeWEBY = workExecutedBy.size();
+		stP.GetWorkExecutedBY().click();
+		int sizeWEBY = stP.GetWorkExecutedBYElementSize();
 		int randomNumberWEBY = ThreadLocalRandom.current().nextInt(1, sizeWEBY);
-		workExecutedBy.get(randomNumberWEBY).click();
+		stP.GetWorkExecutedBYElement().get(randomNumberWEBY).click();
 		log.debug("WorkExecutedBy is selected");
 
 		// b.waitForPageLoaded();
-		nS.GetEBLineDistance().sendKeys(objst.get(0).get(0));
+		nmP.GetEblineDistance().sendKeys(objst.get(0).get(0));
 		log.debug("EBLineDistance is entered");
 
 		// b.waitForPageLoaded();
@@ -217,22 +213,22 @@ public class stepDefination extends Base{
 		log.debug("Indus ID is entered");
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", nS.GetEBLineType());
+		js.executeScript("arguments[0].scrollIntoView();", nmP.GetEBType());
 		b.waitForPageLoaded();
-		nS.GetEBLineType().click();
-		List<WebElement> eBLineType = driver.findElements(By.xpath("//div[@class='col-md-6 col-12']/div/select[@ng-model='SelectedEBLineTypeID']/option"));
-		int sizeEB = eBLineType.size();
+		nmP.GetEBType().click();
+		//List<WebElement> eBLineType = driver.findElements(By.xpath("//div[@class='col-md-6 col-12']/div/select[@ng-model='SelectedEBLineTypeID']/option"));
+		int sizeEB = nmP.GetEBTypeElementSize();
 		int randomNumberEB = ThreadLocalRandom.current().nextInt(1, sizeEB);
 		//p.load(fis);
-		System.out.println(p.getProperty("OTHERTEXT"));
-		eBLineType.get(randomNumberEB).click();
+		//System.out.println(p.getProperty("OTHERTEXT"));
+		nmP.GetEBTypeElement().get(randomNumberEB).click();
 		log.debug("EBLineType is selected");
 		b.waitForPageLoaded();
-		if (p.getProperty("OTHERTEXT").contentEquals(eBLineType.get(randomNumberEB).getText()))
+		if (p.getProperty("OTHERTEXT").contentEquals(nmP.GetEBTypeElement().get(randomNumberEB).getText()))
 		{
 			b.waitForPageLoaded();
 			Thread.sleep(5000);
-			nS.GetOtherText().sendKeys(objst.get(0).get(19));
+			nS.GetOtherText().sendKeys(objst.get(0).get(21));
 		}
 
 		b.waitForPageLoaded();
@@ -244,81 +240,84 @@ public class stepDefination extends Base{
 		log.debug("Connection Type is selected");
 
 		b.waitForPageLoaded();
-		nS.GetSiteType().click();
-		List<WebElement> siteType = driver.findElements(
-				By.xpath("//div[@class='col-md-6 col-12']/div/select[@ng-model='SelectedSitetypeID']/option"));
-		int sizeST = siteType.size();
+		stP.GetSiteType().click();
+		int sizeST = stP.GetSiteTypeElementSize();
 		int randomNumberST = ThreadLocalRandom.current().nextInt(1, sizeST);
-		siteType.get(randomNumberST).click();
+		stP.GetSiteTypeElement().get(randomNumberST).click();
 		log.debug("Site Type is selected");
+		
+		nmP.GetCurrentLoad().sendKeys(objst.get(0).get(3));
 
 		// b.waitForPageLoaded();
-		nS.GetTransormerRating().sendKeys(objst.get(0).get(3));
+		nS.GetTransormerRating().sendKeys(objst.get(0).get(4));
 		log.debug("TransformerRating is Entered");
 
 		// b.waitForPageLoaded();
-		nS.GetAppliedLoad().sendKeys(objst.get(0).get(4));
+		nmP.GetAppliedLoad().sendKeys(objst.get(0).get(5));
 		log.debug("Applied Load is Entered");
+		
+		nmP.GetAdditionalLoad().sendKeys(objst.get(0).get(6));
+		log.debug("Additional Load is entered");
 
-		js.executeScript("arguments[0].scrollIntoView();", nS.GetSubject());
+		js.executeScript("arguments[0].scrollIntoView();", nmP.GetSubject());
 		b.waitForPageLoaded();
-		nS.GetSubject().sendKeys(objst.get(0).get(5));
+		nmP.GetSubject().sendKeys(objst.get(0).get(7));
 		log.debug("Subject is Entered");
 
 		// b.waitForPageLoaded();
-		nS.GetPraposal().sendKeys(objst.get(0).get(6));
+		nS.GetPraposal().sendKeys(objst.get(0).get(8));
 		log.debug("Praposal is Entered");
 
 		// b.waitForPageLoaded();
-		nS.GetBackground().sendKeys(objst.get(0).get(7));
+		nS.GetBackground().sendKeys(objst.get(0).get(9));
 		log.debug("Background is Entered");
 
 		// b.waitForPageLoaded();
-		nS.GetJustification().sendKeys(objst.get(0).get(8));
+		nS.GetJustification().sendKeys(objst.get(0).get(10));
 		log.debug("Justification is Entered");
 
 		// b.waitForPageLoaded();
-		nS.GetFinalImplication().sendKeys(objst.get(0).get(9));
+		nS.GetFinalImplication().sendKeys(objst.get(0).get(11));
 		log.debug("FinalImplication is Entered");
 
 		// b.waitForPageLoaded();
 		nS.GetTotalAmount().sendKeys(Keys.BACK_SPACE);
-		nS.GetTotalAmount().sendKeys(objst.get(0).get(10));
+		nS.GetTotalAmount().sendKeys(objst.get(0).get(12));
 		log.debug("Total Amount is Entered");
 
 		// b.waitForPageLoaded();
-		nS.GetAdditionalAmount().sendKeys(objst.get(0).get(11));
+		nS.GetAdditionalAmount().sendKeys(objst.get(0).get(13));
 		log.debug("Additional Amount is Entered");
 
 		// b.waitForPageLoaded();
-		nS.GetDieselCost().sendKeys(objst.get(0).get(12));
+		nS.GetDieselCost().sendKeys(objst.get(0).get(14));
 		log.debug("Diesel Cost is Entered");
 
-		js.executeScript("arguments[0].scrollIntoView();", nS.GetFileAttachmentROI());
+		js.executeScript("arguments[0].scrollIntoView();", nmP.GetFileAttachementROI());
 		b.waitForPageLoaded();
-		nS.GetFileAttachmentROI().sendKeys("D:\\COC.docx");
+		nmP.GetFileAttachementROI().sendKeys("D:\\COC.docx");
 		log.debug("ROI Attachment is Attached");
 
-		nS.GetBudgetHead().sendKeys(objst.get(0).get(13));
+		nS.GetBudgetHead().sendKeys(objst.get(0).get(15));
 		log.debug("BudgetHead is Entered");
 
-		nS.GetPreferredSupplier().sendKeys(objst.get(0).get(14));
+		nS.GetPreferredSupplier().sendKeys(objst.get(0).get(16));
 		log.debug("Preferred Supplier is Entered");
 
-		nS.GetReasonForOverspending().sendKeys(objst.get(0).get(15));
+		nS.GetReasonForOverspending().sendKeys(objst.get(0).get(17));
 		log.debug("Reason For Overspending is Entered");
 
-		nS.GetRemarks().sendKeys(objst.get(0).get(16));
+		nmP.GetRemarks().sendKeys(objst.get(0).get(18));
 		log.debug("Remarks is Entered");
 
-		nS.GetRecommendation().sendKeys(objst.get(0).get(17));
+		nS.GetRecommendation().sendKeys(objst.get(0).get(19));
 		log.debug("Recommendation is Entered");
 
 		b.waitForPageLoaded();
 		nS.GetAttachDocument().sendKeys("D:\\COC.docx");
 		log.debug("Attachment is Attached");
 
-		nS.GetUserComment().sendKeys(objst.get(0).get(18));
+		nS.GetUserComment().sendKeys(objst.get(0).get(20));
 		log.debug("user comment is Entered");
     	
     }
@@ -561,7 +560,7 @@ public class stepDefination extends Base{
 		{
 			b.waitForPageLoaded();
 			Thread.sleep(5000);
-			nS.GetOtherText().sendKeys(npObj.get(0).get(21));
+			nmP.GetOtherText().sendKeys(npObj.get(0).get(21));
 		}
 
 		b.waitForPageLoaded();

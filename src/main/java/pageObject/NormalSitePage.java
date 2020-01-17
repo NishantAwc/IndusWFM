@@ -19,7 +19,7 @@ public WebDriver driver;
 	
 	By EBType = By.xpath("//div[@id='ebID']");
 	
-	By EBTypeElement = By.xpath("//div[@id='ebID']/select/option");
+	By EBTypeElement = By.xpath("//div[@id='ebID']/select");
 	
 	By Subject = By.id("_SubjectItem");
 	
@@ -34,6 +34,13 @@ public WebDriver driver;
 	By Remarks = By.id("_remarks");
 	
 	By Submit = By.id("submit");
+	
+	By OtherText = By.id("othersInp");
+	
+	public WebElement GetOtherText()
+	{
+		return driver.findElement(OtherText);
+	}
 	
 	
 	public WebElement GetSubmit()
